@@ -14,7 +14,7 @@ pipeline {
                 sh '''
                     cd backend-tests/
                     npm install && npm run cypress:run
-                    echo 'Publish test result'
+                    echo 'Publish test results'
                     pwd
                     ls -lart
                 '''
