@@ -40,14 +40,24 @@ pipeline {
                     pwd
                     ls -lart
                 '''
+                 publishHTML([
+                    allowMissing: false,
+                     alwaysLinkToLastBuild: false,
+                      keepAll: false, 
+                      reportDir: 'frontEndRegression/mochawesome-report', 
+                      reportFiles: 'mochawesome.html',
+                       reportName: 'FrontEnd Report', 
+                       reportTitles: ''
+                ])
                 archiveArtifacts  allowEmptyArchive: true,  artifacts: 'frontEndRegression/cypress/videos/**'
             }
         }
         
              stage('Performance test') {
             steps {
-                sh 'pwd'
-                sh 'ls -lart'
+                // sh '''
+                //     jmeter -n -t login.logout.jmx -l test1.csv -e -0 html-reports/
+                // '''
             }
         }
     }
