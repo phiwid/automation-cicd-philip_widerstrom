@@ -11,8 +11,9 @@ pipeline {
         
          stage('Frontend tests') {
             steps {
-                sh 'pwd'
-                sh 'ls -lart'
+                sh '''
+                    echo 'Frontend tests'
+                '''
             }
         }
         
