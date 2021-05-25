@@ -33,8 +33,13 @@ pipeline {
         
          stage('Backend tests') {
             steps {
-                sh 'pwd'
-                sh 'ls -lart'
+                  sh '''
+                    cd frontEndRegression/
+                    npm install && npm run cypress:run
+                    echo 'Publish test results'
+                    pwd
+                    ls -lart
+                '''
             }
         }
         
