@@ -9,7 +9,7 @@ pipeline {
             }
         }
         
-         stage('Frontend tests') {
+         stage('BackEnd tests') {
             steps {
                 sh '''
                     cd backend-tests/
@@ -31,7 +31,7 @@ pipeline {
             }
         }
         
-         stage('Backend tests') {
+         stage('FrontEnd tests') {
             steps {
                   sh '''
                     cd frontEndRegression/
@@ -40,6 +40,7 @@ pipeline {
                     pwd
                     ls -lart
                 '''
+                archiveArtifacts  allowEmptyArchive: true,  artifacts: 'frontEndRegression/cypress/videos/**'
             }
         }
         
