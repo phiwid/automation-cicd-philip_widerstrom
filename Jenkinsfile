@@ -18,6 +18,16 @@ pipeline {
                     pwd
                     ls -lart
                 '''
+
+                publishHTML([
+                    allowMissing: false,
+                     alwaysLinkToLastBuild: false,
+                      keepAll: false, 
+                      reportDir: 'backend-tests/mochawesome-report', 
+                      reportFiles: 'mochawesome.html',
+                       reportName: 'BackEnd Report', 
+                       reportTitles: ''
+                ])
             }
         }
         
