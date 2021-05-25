@@ -12,7 +12,11 @@ pipeline {
          stage('Frontend tests') {
             steps {
                 sh '''
-                    echo 'Frontend tests'
+                    cd backend-tests/
+                    npm install && npm run cypress:run
+                    echo 'Publish test result'
+                    pwd
+                    ls -lart
                 '''
             }
         }
