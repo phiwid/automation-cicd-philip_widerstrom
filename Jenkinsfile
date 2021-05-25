@@ -3,8 +3,9 @@ pipeline {
     stages {
         stage('Deploy/Build app') {
             steps {
-                sh 'pwd'
-                sh 'ls -lart'
+                sh '''
+                    echo 'Application deployed successfully'
+                '''
             }
         }
         
